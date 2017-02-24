@@ -16,6 +16,11 @@ namespace TheSmsCentral
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(config.FromName))
+            {
+                config.FromName = config.SenderId;
+            }
+
             string path = ConfigFile.Replace("{tenant}", tenant);
             path = PathMapper.MapPath(path);
 

@@ -145,6 +145,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\backend\index.js" />
     <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
