@@ -1,0 +1,41 @@
+﻿@model Config
+@{
+    Layout = ViewBag.Layout;
+}
+
+<style>
+    .relaxed.segment .container { padding: 4em; }
+</style>
+<div class="ui attached relaxed sms central configuration segment">
+    <div class="ui container">
+        <div class="ui huge header">The SMS Central Configuration</div>
+        <div class="ui yellow message">
+            The SMS central is a leading SMS messaging service provider offering two-way SMS communication services straight from your internet enabled computer. The Bulk SMS gateway reaches across borders and connects to over all mobile network operators in Nepal.
+        </div>
+        <div class="ui flat form">
+            <div class="field">
+                <label for="ApiUrlInputUrl">Api Url</label>
+                <input type="url" id="ApiUrlInputUrl" value="@Model.ApiUrl"/>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label for="SenderIdInputText">Sender Id</label>
+                    <input type="text" id="SenderIdInputText" value="@Model.SenderId"/>
+                </div>
+                <div class="field">
+                    <label for="AuthenticationTokenInputText">Authentication Token</label>
+                    <input type="text" id="AuthenticationTokenInputText" value="@Model.AuthenticationToken"/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui toggle checkbox">
+                    <input id="EnabledCheckbox" type="checkbox" data-checked="@Model.Enabled.ToString().ToLower()"/>
+                    <label>Is Enabled</label>
+                </div>
+            </div>
+            <button id="SaveButton" class="ui positive button">Save</button>
+        </div>
+    </div>
+</div>
+
+<script src="/Areas/TheSmsCentral/scripts/backend/index.js"></script>
