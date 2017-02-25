@@ -46,7 +46,7 @@ namespace TheSmsCentral
             {
                 string sendTo = sms.SendTo.Split(',').FirstOrDefault();
 
-                if (sendTo == null)
+                if (sendTo == null || !sendTo.StartsWith("9") || sendTo.Length != 10)
                 {
                     return false;
                 }
@@ -78,7 +78,7 @@ namespace TheSmsCentral
                         string data = await reader.ReadToEndAsync().ConfigureAwait(false);
                         dynamic result = JObject.Parse(data);
 
-                        if (!result)
+                        if (result == null)
                         {
                             sms.Status = Status.Failed;
                             return false;

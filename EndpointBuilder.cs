@@ -37,10 +37,10 @@ namespace TheSmsCentral
             var builder = new StringBuilder();
             builder.Append(this.Config.ApiUrl);
             builder.Append("?");
-            builder.Append($"token = {this.Config.AuthenticationToken}");
-            builder.Append($"&sender = {this.Config.SenderId}");
-            builder.Append($"&to = {this.To}");
-            builder.Append($"&message = {this.Message}");
+            builder.Append($"token={this.Config.AuthenticationToken}");
+            builder.Append($"&sender={this.Config.SenderId}");
+            builder.Append($"&to={this.To}");
+            builder.Append($"&message={this.Message}");
 
             return builder.ToString();
         }
