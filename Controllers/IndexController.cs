@@ -8,7 +8,7 @@ using Frapid.Dashboard.Controllers;
 namespace TheSmsCentral.Controllers
 {
     [AntiForgery]
-    public class IndexController : DashboardController
+    public sealed class IndexController : DashboardController
     {
         [Route("dashboard/tsc")]
         [MenuPolicy]

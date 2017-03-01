@@ -19,7 +19,7 @@ WHERE app_name = 'tsc';
 SELECT * FROM core.create_app('tsc', 'TheSmsCentral', 'The SMS Central', '1.0', 'MixERP Inc.', 'December 1, 2015', 'pink comments', '/dashboard/tsc', NULL);
 
 SELECT * FROM core.create_menu('tsc', 'Tasks', 'Tasks', '', 'lightning', '');
-SELECT * FROM core.create_menu('tsc', 'Setup', 'Setup', '/dashboard/tsc', 'configure', 'Tasks');
+SELECT * FROM core.create_menu('tsc', 'TheSmsCentralSetup', 'TheSmsCentral Setup', '/dashboard/tsc', 'configure', 'Tasks');
 
 
 SELECT * FROM auth.create_app_menu_policy

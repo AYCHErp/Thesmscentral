@@ -27,9 +27,23 @@
                     <input type="text" id="AuthenticationTokenInputText" value="@Model.AuthenticationToken"/>
                 </div>
             </div>
+            <div class="three fields">
+                <div class="field">
+                    <label for="MethodInputText">Method</label>
+                    <input type="text" id="MethodInputText" value="@Model.Method" />
+                </div>
+                <div class="field">
+                    <label for="AcceptHeaderInputText">Accept Header</label>
+                    <input type="text" id="AcceptHeaderInputText" value="@Model.AcceptHeader" />
+                </div>
+                <div class="field">
+                    <label for="ContentTypeInputText">Content Type</label>
+                    <input type="text" id="ContentTypeInputText" value="@Model.ContentType" />
+                </div>
+            </div>
             <div class="field">
                 <div class="ui toggle checkbox">
-                    <input id="EnabledCheckbox" type="checkbox" data-checked="@Model.Enabled.ToString().ToLower()"/>
+                    <input id="EnabledCheckbox" type="checkbox" data-checked="@Model.Enabled.ToString().ToLower()" />
                     <label>Is Enabled</label>
                 </div>
             </div>

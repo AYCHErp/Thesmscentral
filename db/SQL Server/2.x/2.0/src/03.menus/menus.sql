@@ -19,7 +19,7 @@ WHERE app_name = 'tsc';
 EXECUTE core.create_app 'tsc', 'TheSmsCentral', 'The SMS Central', '1.0', 'MixERP Inc.', 'December 1, 2015', 'pink comments', '/dashboard/tsc', NULL;
 
 EXECUTE core.create_menu 'tsc', 'Tasks', 'Tasks', '', 'lightning', '';
-EXECUTE core.create_menu 'tsc', 'Setup', 'Setup', '/dashboard/tsc', 'configure', 'Tasks';
+EXECUTE core.create_menu 'tsc', 'TheSmsCentralSetup', 'TheSmsCentral Setup', '/dashboard/tsc', 'configure', 'Tasks';
 
 GO
 DECLARE @office_id integer = core.get_office_id_by_office_name('Default');

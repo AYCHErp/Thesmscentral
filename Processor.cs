@@ -23,14 +23,10 @@ namespace TheSmsCentral
             this.IsEnabled = this.Config.Enabled;
 
             if (!this.IsEnabled)
-            {
                 return;
-            }
 
             if (string.IsNullOrWhiteSpace(config.AuthenticationToken))
-            {
                 this.IsEnabled = false;
-            }
         }
 
         public async Task<bool> SendAsync(SmsMessage sms)
@@ -47,21 +43,15 @@ namespace TheSmsCentral
                 string sendTo = sms.SendTo.Split(',').FirstOrDefault();
 
                 if (sendTo == null || !sendTo.StartsWith("9") || sendTo.Length != 10)
-                {
                     return false;
-                }
 
 
-                string endpoint = EndpointBuilder.Initialize
+                var endpoint = EndpointBuilder.Initialize
                     .WithConfiguration(config)
                     .AddMessage(sms.Message)
-                    .SendTo(sendTo)
-                    .Get();
+                    .SendTo(sendTo);
 
-                var request = (HttpWebRequest) WebRequest.Create(endpoint);
-                request.ContentType = "application/x-www-form-urlencoded;";
-                request.Method = "GET";
-                request.Accept = "application/json";
+                var request = GetRequest(config, endpoint);
 
                 using (var response = (HttpWebResponse) request.GetResponse())
                 {
@@ -107,6 +97,17 @@ namespace TheSmsCentral
             }
 
             return false;
+        }
+
+        private static HttpWebRequest GetRequest(Config config, EndpointBuilder endpoint)
+        {
+            var request = (HttpWebRequest) WebRequest.Create(endpoint.Get());
+
+            request.ContentType = config.ContentType;
+            request.Method = config.Method;
+            request.Accept = config.AcceptHeader;
+
+            return request;
         }
     }
 }
